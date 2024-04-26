@@ -171,3 +171,6 @@
     #check:checked~.navbar a {
     transform: translateY(0);
     opacity: 1
+    transition-delay: calc(.15s * var(--i));
+}
+}
