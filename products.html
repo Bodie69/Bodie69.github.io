@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClenScents Parfum</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="images/icon.png">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+body {
+margin: 0;
+padding: 0;
+font-family: "Poppins", sans-serif;;
+min-height: 170vh;
+}
+.product-section {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+padding: 30px 20px;
+grid-column-gap: 20px;
+grid-row-gap: 30px;
+padding-top: 120px; 
+}
+.product img {
+margin: 0;
+width: 100%;
+height: 300px;
+object-fit: cover;
+cursor: pointer;
+transition: 0.2s ease;
+}
+.product img:hover{
+transform: scale(1.04);
+}
+.product h4{
+font-size: 15px;
+padding: 5px;
+text-align: center;
+color: white;
+}
+.product h3{
+font-size: 20px;
+padding: 5px;
+text-align: center;
+color: white;
+}
+.product {
+position: relative;
+}
+.button-container {
+display: flex;
+align-items: center;
+justify-content: center; 
+}
+.button-container img{
+height: 40px;
+width:40px; 
+}
+.button-container img:hover{
+transform: scale(1.30);
+}
+.product button {
+padding: 5px 10px;
+border: none;
+outline: none;
+background-color: green;
+color: white;
+cursor: pointer;
+border-radius: 4px;
+font-size: 15px;
+margin:0;
+margin-right: 10px; /* Add some spacing between the button and image */
+}
+.product button:hover{
+transform: scale(1.08);
+}
+@media screen and (max-width: 768px) {
+.product-section{
+grid-template-columns: repeat(2, 1fr);
+}
+.product img {
+width: 100%;
+height: 200px;
+}
+.button-container img{
+height: 40px;
+width:40px; 
+}
+.modal-content h3{
+font-size: 18px;
+}
+.modal-content p{
+font-size: 15px;
+}
+}
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+background-color: #fefefe;
+margin: 8% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 600px;
+border-radius: 8px;
+}
+.modal-content p{
+text-align: justify;
+}
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<header class="header">
+<img src="images/logo.png" alt="Logo" class="logo">
+<input type="checkbox" id="check">
+<label for="check" class="icons">
+<img src="images/menu.png" id="menu-icon">
+<img src="images/close.png" id="close-icon">
+</label>
+<nav class="navbar">
+<a href="index.html" style="--i:0;">Home</a>
+<a href="#" style="--i:1;" class="active">Products</a>
+<a href="#" style="--i:2;">About</a>
+<a href="#" style="--i:3;">Contact</a>
+<a href="#" style="--i:4;">Login</a>
+</nav>
+</header>
+<!-- Product Section -->
+<section class="product-section">
+<div class="product">
+<img src="images/Products/1million.jpg" alt="parfum 1">
+<h4>1 Million by Paco Rabanne</h4>
+<h3>₱6,150</h3>
+<div class="button-container">
+<button onclick="openModal('modal1')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/212men.jpg" alt="parfum 2">
+<h4>212 Men Carolina Herrera New York</h4>
+<h3>₱6,200</h3>
+<div class="button-container">
+<button onclick="openModal('modal2')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/aquadegio.jpg" alt="parfum 3">
+<h4>Agua Di Gio by Giorgio Armani</h4>
+<h3>₱6,843</h3>
+<div class="button-container">
+<button onclick="openModal('modal3')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/bdc.jpg" alt="parfum 4">
+<h4>Bleu De Chanel</h4>
+<h3>₱6,499</h3>
+<div class="button-container">
+<button onclick="openModal('modal4')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/ck.jpg" alt="parfum 5">
+<h4>Calvin Klein One</h4>
+<h3>₱5,593</h3>
+<div class="button-container">
+<button onclick="openModal('modal5')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/clinique.jpg" alt="parfum 6">
+<h4>Clinique Happy</h4>
+<h3>₱5,299</h3>
+<div class="button-container">
+<button onclick="openModal('modal6')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/creed.jpg" alt="parfum 7">
+<h4>Aventus creed</h4>
+<h3>₱20,495</h3>
+<div class="button-container">
+<button onclick="openModal('modal7')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+<img src="images/Products/d&g.jpg" alt="parfum 8">
+<h4>D&G Light Blue</h4>
+<h3>₱5,950</h3>
+<div class="button-container">
+<button onclick="openModal('modal8')">View Details</button>
+<img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+</div>
+</div>
+<div class="product">
+    <img src="images/Products/d&gtheone.jpg" alt="parfum 9">
+    <h4>D&G The One</h4>
+    <h3>₱5,195</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal9')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/erosflame.jpg" alt="parfum 10">
+    <h4>Versace Eros Flame</h4>
+    <h3>₱5,295</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal10')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/hugoboss.jpg" alt="parfum 11">
+    <h4>Hugo Boss</h4>
+    <h3>₱6,500</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal11')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/lacoste.jpg" alt="parfum 12">
+    <h4>Lacoste Blanc Pure</h4>
+    <h3>₱6,500</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal12')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/montblanc.jpg" alt="parfum 13">
+    <h4>MONTBLANC Legend</h4>
+    <h3>₱5,450</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal13')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/polo.jpg" alt="parfum 14">
+    <h4>Polo Black</h4>
+    <h3>₱6,890</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal14')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/polored.jpg" alt="parfum 15">
+    <h4>Polo Red</h4>
+    <h3>₱6,150</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal15')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+    <img src="images/Products/polosports.jpg" alt="parfum 16">
+    <h4>Polo Blue</h4>
+    <h3>₱6,890</h3>
+    <div class="button-container">
+    <button onclick="openModal('modal16')">View Details</button>
+    <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+    </div>
+    </div>
+    <div class="product">
+        <img src="images/Products/sauvage.jpg" alt="parfum 17">
+        <h4>Dior Sauvage</h4>
+        <h3>₱9,500</h3>
+        <div class="button-container">
+        <button onclick="openModal('modal17')">View Details</button>
+        <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+        </div>
+        </div>
+        <div class="product">
+        <img src="images/Products/tommy.jpg" alt="parfum 18">
+        <h4>Tommy Hilfiger</h4>
+        <h3>₱5,100</h3>
+        <div class="button-container">
+        <button onclick="openModal('modal18')">View Details</button>
+        <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+        </div>
+        </div>
+        <div class="product">
+        <img src="images/Products/versace.jpg" alt="parfum 19">
+        <h4>Versace Eros</h4>
+        <h3>₱6,500</h3>
+        <div class="button-container">
+        <button onclick="openModal('modal19')">View Details</button>
+        <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+        </div>
+        </div>
+        <div class="product">
+        <img src="images/Products/versaceman.jpg" alt="parfum 20">
+        <h4>Versace Man</h4>
+        <h3>₱5,800</h3>
+        <div class="button-container">
+        <button onclick="openModal('modal20')">View Details</button>
+        <img src="images/checkout.png" alt="Checkout" class="checkout-icon" title="Buy Now">
+        </div>
+        </div>
+</section>
+<!-- Modals -->
+<!-- Modal for Product 1 -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal1')">&times;</span>
+<!-- Product 1 details -->
+<h2>1 Million by Paco Rabanne</h2>
+<h3>Product Description</h3>
+<p>Masculine fragrance1 Million from the designer house Paco Rabanne has experienced tremendous popularity since it was launched in 2008. The only previous reissue of this perfume is 1 Million Gold Absolutely, a pure perfume version presented in 2012. In 2013, there is also a new version launched - 1 Million Intense. The new perfume is announced as the embodiment of extravagance.</p>
+<h3>Product Specifications</h3>
+<p>
+    •Saffron<br>
+    •Black Pepper<br>
+    •Blood Mandarin and Cardamom<br>
+    •Rose<br>
+    •Cinnamon and Neroli<br>
+    •Leather<br>
+    •Sandalwood<br>
+    •Patchouli and Orris Root<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 2 -->
+<div id="modal2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal2')">&times;</span>
+<!-- Product 2 details -->
+<h2>212 Men by Carolina Herrera</h2>
+<h3>Product Description</h3>
+<p>212 Men by Carolina Herrera is a Woody Floral Musk fragrance for men. 212 Men was launched in 1999. 212 Men was created by Alberto Morillas, Rosendo Mateu and Ann Gottlieb.</p>
+<h3>Product Specification</h3>
+<p>
+• Green Notes<br>
+•Grapefruit<br>
+•Spices<br>
+•Bergamot<br>
+•Lavender and Petitgrain<br>
+•Ginger<br>
+•Violet<br>
+•Gardenia and Sage<br>
+•Musk<br>
+•Sandalwood<br>
+•Incense<br>
+•Vetiver<br>
+•Guaiac Wood and Labdanum<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 3 -->
+<div id="modal3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal3')">&times;</span>
+<!-- Product 3 details -->
+<h2>Acqua di Gio by Giorgio Armani</h2>
+<h3>Product Description</h3>
+<p>Acqua di Gio by Giorgio Armani is a Aromatic Aquatic fragrance for men. Acqua di Gio was launched in 1996. Acqua di Gio was created by Alberto Morillas, Annick Menardo and Christian Dussoulier.</p>
+<h3>Product Specification</h3>
+<p>
+• Lime<br>
+•Lemon<br>
+•Bergamot<br>
+•Jasmine<br>
+•Orange<br>
+•Mandarin Orange and Neroli<br>
+•Sea Notes<br>
+•Jasmine<br>
+•Calone<br>
+•Rosemary<br>
+•Peach<br>
+•Freesia<br>
+•Hiacynth<br>
+•Cyclamen<br>
+•Violet<br>
+•Coriander<br>
+•Nutmeg<br>
+•Rose and Mignonette<br>
+•White Musk<br>
+•Cedar<br>
+•Oakmoss<br>
+•Patchouli and Amber.<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 4 -->
+<div id="modal4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal4')">&times;</span>
+<!-- Product 4 details -->
+<h2>Bleu de Chanel Eau de Parfum</h2>
+<h3>Product Description</h3>
+<p>Bleu de Chanel Eau de Parfum by Chanel is a Woody Aromatic fragrance for men. Bleu de Chanel Eau de Parfum was launched in 2014. The nose behind this fragrance is Jacques Polge.</p>
+<h3>Product Specification</h3>
+<p>
+•Grapefruit<br>
+•Lemon<br>
+•Mint<br>
+•Pink Pepper<br>
+•Bergamot<br>
+•Aldehydes and Coriander<br>
+•Ginger<br>
+•Nutmeg<br>
+•Jasmine and Melonbase<br>
+•Incense<br>
+•Amber<br>
+•Cedar<br>
+•Sandalwood<br>
+•Patchouli<br>
+•Amberwood and Labdanum<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 5 -->
+<div id="modal5" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal5')">&times;</span>
+<!-- Product 5 details -->
+<h2>CK One by Calvin Klein</h2>
+<h3>Product Description</h3>
+<p>CK One by Calvin Klein is a Citrus Aromatic fragrance for women and men. CK One was launched in 1994. CK One was created by Alberto Morillas and Harry Fremont.</p>
+<h3>Product Specification</h3>
+<p>
+•Lemon<br>
+•Green Notes<br>
+•Bergamot<br>
+•Mandarin Orange<br>
+•Pineapple<br>
+•Cardamom and Papaya<br>
+•Lily-of-the-Valley<br>
+•Jasmine<br>
+•Violet<br>
+•Rose<br>
+•Nutmeg<br>
+•Orris Root and Freesia<br>
+•Green Accord<br>
+•Musk<br>
+•Cedar<br>
+•Sandalwood<br>
+•Oakmoss<br>
+•Green Tea and Amber.<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 6 -->
+<div id="modal6" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal6')">&times;</span>
+<!-- Product 6 details -->
+<h2>Clinique Happy by Clinique</h2>
+<h3>Product Description</h3>
+<p>Clinique Happy by Clinique is a Citrus Aromatic fragrance for men. Clinique Happy was launched in 1999.</p>
+<h3>Product Specification</h3>
+<p>
+•Mandarin Orange<br>
+•Lime<br>
+•Sea Notes<br>
+•Lemon and Green Notes<br>
+•Freesia<br>
+•Jasmine<br>
+•Lily-of-the-Valley and Rose<br>
+•Cypress<br>
+•Musk<br>
+•Cedar and Guaiac Wood<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 7 -->
+<div id="modal7" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal7')">&times;</span>
+<!-- Product 7 details -->
+<h2>Aventus by Creed</h2>
+<h3>Product Description</h3>
+<p>Aventus by Creed is a Chypre Fruity fragrance for men. Aventus was launched in 2010. Aventus was created by Jean-Christophe Hérault and Erwin Creed.</p>
+<h3>Product Specification</h3>
+<p>
+•Bergamot<br>
+•Black Currant<br>
+•Apple<br>
+•Lemon and Pink Pepper<br>
+•Pineapple<br>
+•Patchouli and Moroccan Jasmine<br>
+•Birch<br>
+•Musk<br>
+•oak moss<br>
+•Ambroxan and Cedarwood.<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 8 -->
+<div id="modal8" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal8')">&times;</span>
+<!-- Product 8 details -->
+<h2>Light Blue by Dolce&Gabbana</h2>
+<h3>Product Description</h3>
+<p>Light Blue by Dolce&Gabbana is a Floral Fruity fragrance for women. Light Blue was launched in 2001. The nose behind this fragrance is Olivier Cresp.</p>
+<h3>Product Specification</h3>
+<p>
+•Sicilian Lemon<br>
+•Apple<br>
+•Cedar and Bellflower<br>
+•Bamboo<br>
+•Jasmine and White Rose<br>
+•Cedar<br>
+•Musk and Amber<br>
+</p>
+</div>
+<!-- Modal for Product 9 -->
+<div id="modal9" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal9')">&times;</span>
+<!-- Product 9 details -->
+<h2>The One by Dolce&Gabbana</h2>
+<h3>Product Description</h3>
+<p>The One for Men Eau de Parfum by Dolce&Gabbana is a Woody Spicy fragrance for men. The One for Men Eau de Parfum was launched in 2015. The nose behind this fragrance is Olivier Polge.</p>
+<h3>Product Specification</h3>
+<p>
+•Grapefruit<br>
+•Coriander and Basil<br>
+•Cardamom<br>
+•Ginger and Orange Blossom<br>
+•Amber<br>
+•Tobacco and Cedar<br>
+</p>
+</div>
+<!-- Modal for Product 10 -->
+<div id="modal10" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal10')">&times;</span>
+<!-- Product 10 details -->
+<h2>Eros Flame by Versace</h2>
+<h3>Product Description</h3>
+<p>Eros Flame by Versace is a Woody Spicy fragrance for men. Eros Flame was launched in 2018. The nose behind this fragrance is Olivier Pescheux.</p>
+<h3>Product Specification</h3>
+<p>
+•Mandarin Orange<br>
+•Madagascar Pepper<br>
+•Lemon<br>
+•Chinotto and Rosemary<br>
+•Geranium<br>
+•Rose and Pepperwood™<br>
+•Vanilla<br>
+•Tonka Bean<br>
+•Sandalwood<br>
+•Texas Cedar<br>
+•Patchouli and Oakmoss<br>
+</p>
+</div>
+<!-- Modal for Product 11 -->
+<div id="modal11" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal11')">&times;</span>
+<!-- Product 11 details -->
+<h2>Hugo Man by Hugo Boss</h2>
+<h3>Product Description</h3>
+<p>Hugo Man by Hugo Boss is a Woody Aromatic fragrance for men. Hugo Man was launched in 2021.</p>
+<h3>Product Specification</h3>
+<p>
+•Green Apple<br>
+•Lavender<br>
+•Pine<br>
+•Woody Notes and Balsam Fir<br>
+</p>
+</div>
+<!-- Modal for Product 12 -->
+<div id="modal12" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal12')">&times;</span>
+<!-- Product 12 details -->
+<h2>Lacoste Blanc Pure</h2>
+<h3>Product Description</h3>
+<p>Eau de Lacoste L.12.12 Blanc Pure Collector Edition Pour Homme x Jeremyville by Lacoste Fragrances is a Woody Aromatic fragrance for men. Eau de Lacoste L.12.12 Blanc Pure Collector Edition Pour Homme x Jeremyville was launched in 2020. The nose behind this fragrance is Olivier Pescheux.</p>
+<h3>Product Specification</h3>
+<p>
+•Lemon<br>
+•Ginger and Grapefruit<br>
+•Pomarose<br>
+•Green Notes and Rosemary<br>
+•Suede<br>
+•Cedar and Musk<br>
+</p>
+</div>
+<!-- Modal for Product 13 -->
+<div id="modal13" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal13')">&times;</span>
+<!-- Product 13 details -->
+<h2>Montblanc Legend</h2>
+<h3>Product Description</h3>
+<p>Legend Special Edition 2014 by Montblanc is a Aromatic Fougere fragrance for men. Legend Special Edition 2014 was launched in 2014. The nose behind this fragrance is Olivier Pescheux.</p>
+<h3>Product Specification</h3>
+<p>
+•Lime and Mint<br>
+•Apple<br>
+•Violet Leaf and Cardamom<br>
+•Woody Notes<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 14 -->
+<div id="modal14" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal14')">&times;</span>
+<!-- Product 14 details -->
+<h2>Polo Black by Ralph Lauren</h2>
+<h3>Product Description</h3>
+<p>Polo Black by Ralph Lauren is a Woody Aromatic fragrance for men. Polo Black was launched in 2005. The nose behind this fragrance is Pierre Negrin.</p>
+<h3>Product Specification</h3>
+<p>
+•Mango<br>
+•Sandalwood<br>
+•Tangerine<br>
+•Patchouli<br>
+•Tonka Bean<br>
+•Lemon<br>
+•Wormwood<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 15 -->
+<div id="modal15" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal15')">&times;</span>
+<!-- Product 15 details -->
+<h2>Polo Red by Ralph Lauren</h2>
+<h3>Product Description</h3>
+<p>Polo Red by Ralph Lauren is a Woody Spicy fragrance for men. Polo Red was launched in 2013. The nose behind this fragrance is Olivier Gillotin.</p>
+<h3>Product Specification</h3>
+<p>
+•Cranberry<br>
+•Grapefruit and Italian Lemon<br>
+•Saffron and Sage<br>
+•Amber<br>
+•Coffee and Woodsy Notes<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 16 -->
+<div id="modal16" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal16')">&times;</span>
+<!-- Product 16 details -->
+<h2>Polo Blue by Ralph Lauren</h2>
+<h3>Product Description</h3>
+<p>Polo Blue by Ralph Lauren is a Aromatic Fougere fragrance for men. Polo Blue was launched in 2003. Polo Blue was created by Carlos Benaim and Christophe Laudamiel.</p>
+<h3>Product Specification</h3>
+<p>
+•Cucumber<br>
+•Melon and Mandarin Orange<br>
+•Basil<br>
+•Sage and Geranium<br>
+•Suede<br>
+•Woodsy Notes and Musk<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 17 -->
+<div id="modal17" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal17')">&times;</span>
+<!-- Product 17 details -->
+<h2>Sauvage by Dior</h2>
+<h3>Product Description</h3>
+<p>Sauvage by Dior is a Aromatic Fougere fragrance for men. Sauvage was launched in 2015. The nose behind this fragrance is François Demachy.</p>
+<h3>Product Specification</h3>
+<p>
+•Calabrian bergamot and Pepper<br>
+•Sichuan Pepper<br>
+•Lavender<br>
+•Pink Pepper<br>
+•Vetiver<br>
+•Patchouli<br>
+•Geranium and elemi<br>
+•Ambroxan<br>
+•Cedar and Labdanum<br>
+</p>
+</div>
+</div>
+<!-- Modal for Product 18 -->
+<div id="modal18" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal18')">&times;</span>
+<!-- Product 18 details -->
+<h2>Tommy by Tommy Hilfiger</h2>
+<h3>Product Description</h3>
+<p>Tommy by Tommy Hilfiger is a Citrus Aromatic fragrance for men. Tommy was launched in 1995. Tommy was created by Annie Buzantian and Alberto Morillas.</p>
+<h3>Product Specification</h3>
+<p>
+•Mint<br>
+•Bergamot<br>
+•Grapefruit and Lavender<br>
+•Granny Smith apple<br>
+•Cranberry and Rose<br>
+•Cotton Flower<br>
+•Cactus and Amber<br>
+</p>
+</div>
+<!-- Modal for Product 19 -->
+<div id="modal19" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal19')">&times;</span>
+<!-- Product 19 details -->
+<h2>Eros by Versace</h2>
+<h3>Product Description</h3>
+<p>Eros by Versace is a Aromatic Fougere fragrance for men. Eros was launched in 2012. The nose behind this fragrance is Aurelien Guichard.</p>
+<h3>Product Specification</h3>
+<p>
+•Mint<br>
+•Green Apple and Lemon<br>
+•Tonka Bean<br>
+•Ambroxan and Geranium<br>
+•Madagascar Vanilla<br>
+•Virginian Cedar<br>
+•Atlas Cedar<br>
+•Vetiver and Oakmoss<br>
+</p>
+</div>
+<!-- Modal for Product 20 -->
+<div id="modal20" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal20')">&times;</span>
+<!-- Product 20 details -->
+<h2>Versace Man by Versace</h2>
+<h3>Product Description</h3>
+<p>Versace Man by Versace is a Woody Spicy fragrance for men. Versace Man was launched in 2003. The nose behind this fragrance is Domitille Michalon Bertier.</p>
+<h3>Product Specification</h3>
+<p>
+•Pepper<br>
+•Angelica<br>
+•Neroli and Bergamot<br>
+•Saffron and Cardamom<br>
+•Tobacco<br>
+•Amber<br>
+•Cashmere Wood and Labdanum<br>
+</p>
+</div>
+</div>
+<!-- JavaScript for modal functionality -->
+<script>
+// Function to open modal
+function openModal(modalId) {
+var modal = document.getElementById(modalId);
+modal.style.display = "block";
+}
+// Function to close modal
+function closeModal(modalId) {
+var modal = document.getElementById(modalId);
+modal.style.display = "none";
+}
+</script>
+<footer class="footer">
+<p>&copy; 2024 ClenScents Parfum</p>
+</footer>
+</body>
+</html
