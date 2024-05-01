@@ -140,7 +140,7 @@
     #check:checked~.icons #menu-icon {
     width: 40px; 
     height: auto;
-    padding: 25px; 
+    right: 25px; 
     display: none;
     }
     .icons #close-icon{
