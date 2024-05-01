@@ -138,8 +138,8 @@
     display: inline-flex;
     }
     #check:checked~.icons #menu-icon {
-    width: 40px; 
-    height: auto;
+    width: 20px; 
+    height: 20px;
     display: none;
     }
     .icons #close-icon{
