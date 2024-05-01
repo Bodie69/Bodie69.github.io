@@ -139,7 +139,8 @@
     }
     #check:checked~.icons #menu-icon {
     width: 40px; 
-    height: auto; 
+    height: auto;
+    padding: 5px; 
     display: none;
     }
     .icons #close-icon{
