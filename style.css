@@ -134,22 +134,22 @@
     @media (max-width: 768px) {
     .icons{
     width: 40px; 
-    height: 40px; 
+    height: auto; 
     display: inline-flex;
     }
     #check:checked~.icons #menu-icon {
     width: 40px; 
-    height: 40px; 
+    height: auto; 
     display: none;
     }
     .icons #close-icon{
     width: 40px; 
-    height: 40px; 
+    height: auto; 
     display: none;
     }
     #check:checked~.icons #close-icon {
     width: 40px; 
-    height: 40px; 
+    height: auto; 
     display: block;
     }
     .navbar{
