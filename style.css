@@ -136,12 +136,18 @@
     display: inline-flex;
     }
     #check:checked~.icons #menu-icon {
+    width: 80px; 
+    height: 80px; 
     display: none;
     }
     .icons #close-icon{
+    width: 80px; 
+    height: 80px; 
     display: none;
     }
     #check:checked~.icons #close-icon {
+    width: 80px; 
+    height: 80px; 
     display: block;
     }
     .navbar{
