@@ -133,6 +133,8 @@
     }
     @media (max-width: 768px) {
     .icons{
+    width: 80px; 
+    height: 80px; 
     display: inline-flex;
     }
     #check:checked~.icons #menu-icon {
